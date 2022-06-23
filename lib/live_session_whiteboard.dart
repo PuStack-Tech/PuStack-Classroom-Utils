@@ -30,30 +30,61 @@ class LiveSessionWhiteboard extends StatelessWidget {
       "uid": uid,
     };
 
-    return PlatformViewLink(
-      viewType: viewType,
-      surfaceFactory:
-          (BuildContext context, PlatformViewController controller) {
-        return AndroidViewSurface(
-          controller: controller as AndroidViewController,
-          gestureRecognizers: const <Factory<OneSequenceGestureRecognizer>>{},
-          hitTestBehavior: PlatformViewHitTestBehavior.opaque,
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.android:
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          child: AndroidView(
+            viewType: viewType,
+            onPlatformViewCreated: _onPlatformViewCreated,
+            hitTestBehavior: PlatformViewHitTestBehavior.transparent,
+            creationParams: creationParams,
+            creationParamsCodec: const StandardMessageCodec(),
+            gestureRecognizers: const <Factory<OneSequenceGestureRecognizer>>{},
+          ),
         );
-      },
-      onCreatePlatformView: (PlatformViewCreationParams params) {
-        return PlatformViewsService.initSurfaceAndroidView(
-          id: params.id,
-          viewType: viewType,
-          layoutDirection: TextDirection.ltr,
-          creationParams: creationParams,
-          creationParamsCodec: const StandardMessageCodec(),
-          onFocus: () {
-            params.onFocusChanged(true);
-          },
-        )
-          ..addOnPlatformViewCreatedListener(params.onPlatformViewCreated)
-          ..create();
-      },
-    );
+      case TargetPlatform.iOS:
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          child: UiKitView(
+            viewType: viewType,
+            layoutDirection: TextDirection.ltr,
+            creationParams: creationParams,
+            creationParamsCodec: const StandardMessageCodec(),
+          ),
+        );
+      default:
+        return Container();
+    }
+
+    // return PlatformViewLink(
+    //   viewType: viewType,
+    //   surfaceFactory:
+    //       (BuildContext context, PlatformViewController controller) {
+    //     return AndroidViewSurface(
+    //       controller: controller as AndroidViewController,
+    //       gestureRecognizers: const <Factory<OneSequenceGestureRecognizer>>{},
+    //       hitTestBehavior: PlatformViewHitTestBehavior.opaque,
+    //     );
+    //   },
+    //   onCreatePlatformView: (PlatformViewCreationParams params) {
+    //     return PlatformViewsService.initSurfaceAndroidView(
+    //       id: params.id,
+    //       viewType: viewType,
+    //       layoutDirection: TextDirection.ltr,
+    //       creationParams: creationParams,
+    //       creationParamsCodec: const StandardMessageCodec(),
+    //       onFocus: () {
+    //         params.onFocusChanged(true);
+    //       },
+    //     )
+    //       ..addOnPlatformViewCreatedListener(params.onPlatformViewCreated)
+    //       ..create();
+    //   },
+    // );
   }
+}
+
+Future<void> _onPlatformViewCreated(int id) async {
+  return;
 }
