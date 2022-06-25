@@ -1,0 +1,14 @@
+//  The contents of this file are implicitly included at the beginning of every test case source file.
+
+#ifdef __OBJC__
+
+
+#define WhiteAppIdentifier <#@App identifier#>
+#define WhiteSDKToken <#@sdk Token#>
+#define WhiteRoomUUID <#Room UUID#>
+#define WhiteRoomToken <#Room Token#>
+#define WhiteReplayRoomUUID <#Replay UUID#>
+#define WhiteReplayRoomToken <#Replay Token#>
+
+
+#endif

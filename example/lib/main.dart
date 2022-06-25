@@ -23,9 +23,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.blue,
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
         body: Container(
           margin: EdgeInsets.all(25),
           child: AspectRatio(

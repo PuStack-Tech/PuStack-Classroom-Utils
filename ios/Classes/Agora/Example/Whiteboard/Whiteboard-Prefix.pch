@@ -1,0 +1,24 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+//#define WhiteSDKToken <#@sdk Token#>
+//#define WhiteAppIdentifier <#@App identifier#>
+
+
+// 如果需要进入特定房间，取消以下两行注释，同时填入对应的 UUID 以及 roomToken
+//#define WhiteRoomUUID  <#Room UUID#>
+//#define WhiteRoomToken <#Room Token#>
+
+#ifdef __OBJC__
+    @import UIKit;
+    @import Foundation;
+#endif
