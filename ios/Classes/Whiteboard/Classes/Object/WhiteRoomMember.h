@@ -5,7 +5,7 @@
 //  Created by leavesster on 2018/8/14.
 //
 
-#import "WhiteObject.h"
+#import "../Model/WhiteObject.h"
 #import "WhiteMemberState.h"
 #import "WhiteMemberInformation.h"
 

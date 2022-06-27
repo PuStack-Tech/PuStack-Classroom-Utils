@@ -6,11 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WhiteCameraConfig.h"
-#import "WhiteRectangleConfig.h"
-#import "WhiteCameraBound.h"
-#import "WhitePanEvent.h"
-#import "WhiteFontFace.h"
+#import "../Object/WhiteCameraConfig.h"
+#import "../Object/WhiteRectangleConfig.h"
+#import "../Object/WhiteCameraBound.h"
+#import "../Object/WhitePanEvent.h"
+#import "../Object/WhiteFontFace.h"
 
 typedef NS_ENUM(NSInteger, WhiteScenePathType) {
     /** 路径对应的内容为空。 */
@@ -25,13 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class WhiteScene;
 
- /** 该类为白板房间的基类。 */
+/** 该类为白板房间的基类。 */
 @interface WhiteDisplayer : NSObject
 
 /**
  @deprecated 该方法已弃用，修改白板背景色，现在可以直接设置 WhiteboardView backgroundColor 属性即可。
  */
-@property (nonatomic, strong) UIColor *backgroundColor __deprecated_msg("use WhiteboardView's backgroundColor property");
+@property(nonatomic, strong) UIColor *backgroundColor __deprecated_msg("use WhiteboardView's backgroundColor property");
 
 #pragma mark - iframe
 
@@ -45,11 +45,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  根据scenePath查询指定场景
- 
+
  @param scenePath 场景路径
  @param result 返回指定场景的查询结果，详见 [WhiteScene](WhiteScene)
  */
-- (void)getSceneFromScenePath:(NSString *)scenePath result:(void (^) (WhiteScene* _Nullable scene))result;
+- (void)getSceneFromScenePath:(NSString *)scenePath result:(void (^)(WhiteScene *_Nullable scene))result;
 
 /**
  查询场景路径类型。
@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param pathOrDir 场景路径类型。
  @param result 回调。返回指定场景的路径类型，详见 [WhiteScenePathType](WhiteScenePathType)。
  */
-- (void)getScenePathType:(NSString *)pathOrDir result:(void (^) (WhiteScenePathType pathType))result;
+- (void)getScenePathType:(NSString *)pathOrDir result:(void (^)(WhiteScenePathType pathType))result;
 
 /**
  * 获取房间内所有场景的信息，返回格式：
@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param result 回调。返回当前房间内所有场景的信息。
  */
-- (void)getEntireScenes:(void (^) (NSDictionary<NSString *, NSArray<WhiteScene *>*> *dict))result;
+- (void)getEntireScenes:(void (^)(NSDictionary<NSString *, NSArray<WhiteScene *> *> *dict))result;
 
 #pragma mark - 自定义事件
 /** 注册自定义事件监听。
@@ -78,25 +78,25 @@ NS_ASSUME_NONNULL_BEGIN
  成功注册后，你可以接收到对应的自定义事件通知。
 
  **Note:** 对于同名的自定义事件，SDK 仅支持触发一个回调。
- 
+
  @param eventName 想要监听的自定义事件名称。
 */
 - (void)addMagixEventListener:(NSString *)eventName;
 
 /** 注册高频自定义事件监听。
- 
+
  成功注册后，你可以接收到对应的自定义事件通知。
 
  **Note:** 对于同名的自定义事件，SDK 仅支持触发一个回调。
 
  @param eventName 想要监听的自定义事件名称。
- 
+
  @param millseconds SDK 触发回调的频率，单位为毫秒。该参数最小值为 500 ms，如果设置为低于该值会被重置为 500 ms。
 */
 - (void)addHighFrequencyEventListener:(NSString *)eventName fireInterval:(NSUInteger)millseconds;
 
 /** 移除自定义事件监听。
- 
+
  @param eventName 想要移除监听的自定义事件名称。
 */
 - (void)removeMagixEventListener:(NSString *)eventName;
@@ -104,20 +104,20 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 视野坐标类 API
 
 /** 刷新白板的界面。
- 
+
  当 `WhiteboardView` 出现改变时，需要调用该方法刷新白板的界面。
  目前该方法 SDK 会主动调用，不再需要手动调用
  */
 - (void)refreshViewSize;
 
 /** 转换白板上点的坐标。
- 
+
  该方法可以将 iOS 内部坐标系中的坐标转换为世界坐标系（以白板初始化时的中点为原点，横轴为 X 轴，正方向向右，纵轴为 Y 轴，正方向向下）坐标。
 
  @param point 点在 iOS 坐标系中的坐标。
  @param result 回调。返回点在世界坐标系上的坐标，详见 [WhitePanEvent](WhitePanEvent)。
  */
-- (void)convertToPointInWorld:(WhitePanEvent *)point result:(void (^) (WhitePanEvent *convertPoint))result;
+- (void)convertToPointInWorld:(WhitePanEvent *)point result:(void (^)(WhitePanEvent *convertPoint))result;
 
 /**
  设置视角边界。
@@ -144,13 +144,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  调整视角以保证完整显示 PPT 的内容。
- 
+
  该操作为一次性操作。
 
  @since 2.5.1
- 
- **Note:** 
- 
+
+ **Note:**
+
  - 如果当前用户已经调用 [setViewMode](setViewMode) 方法并设置为 `follower`，调用该方法可能造成当前用户与主播内容不完全一致。
  - 该方法为一次性操作。如果没有插入 PPT，调用该方法不生效。
 
@@ -164,7 +164,7 @@ NS_ASSUME_NONNULL_BEGIN
  该方法为一次性操作。如果没有插入 H5 课件，调用该方法不生效。
 
  @since 2.12.5
- 
+
  **Note:** 如果当前用户已经调用 [setViewMode](setViewMode) 方法并设置为 `follower`，调用该方法可能造成当前用户与主播内容不完全一致。
  */
 - (void)scaleIframeToFit;
@@ -185,16 +185,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  获取特定场景的预览图。
- **Note:** 
- 
+ **Note:**
+
  - 截取用户切换时，看到的场景内容，不是场景内全部内容。
  - 图片支持：只有当图片服务器支持跨域，才可以显示在截图中。（请真机中运行）
 
  @param scenePath 场景路径。
  @param completionHandler 返回指定场景的预览图。
  */
-- (void)getScenePreviewImage:(NSString *)scenePath completion:(void (^)(UIImage * _Nullable image))completionHandler;
-
+- (void)getScenePreviewImage:(NSString *)scenePath completion:(void (^)(UIImage *_Nullable image))completionHandler;
 
 /**
  获取特定场景的截图。
@@ -204,14 +203,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param scenePath 场景路径。
  @param completionHandler 你可以通过该接口获取 `getSceneSnapshotImage` 方法的调用结果：
  */
-- (void)getSceneSnapshotImage:(NSString *)scenePath completion:(void (^)(UIImage * _Nullable image))completionHandler;
+- (void)getSceneSnapshotImage:(NSString *)scenePath completion:(void (^)(UIImage *_Nullable image))completionHandler;
 
 /**
  获取当前的 WindowManager
- 
+
  @param result 获取的attributes回调
  */
-- (void)getWindowManagerAttributesWithResult:(void(^)(NSDictionary * attributes))result;
+- (void)getWindowManagerAttributesWithResult:(void (^)(NSDictionary *attributes))result;
 
 @end
 

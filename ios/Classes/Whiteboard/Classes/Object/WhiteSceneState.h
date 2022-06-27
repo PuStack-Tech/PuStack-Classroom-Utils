@@ -3,22 +3,23 @@
 //  WhiteSDK
 //
 //  Created by yleaf on 2019/2/25.
-//
 
-#import "WhiteObject.h"
+#import "../Model/WhiteObject.h"
 #import "WhiteScene.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** 场景状态。如果开启了多窗口，需要查看主白板页面数量状态变化，该对象不再有效，需要查看 [WhitePageState](WhitePageState) */
+/** Scene State
+ * If multiple windows are enabled, you need to check the status change of the number of main whiteboard pages. This object is no longer valid and needs to be checked 
+ * [WhitePageState](WhitePageState) */
 @interface WhiteSceneState : WhiteObject
 
-/** 当前场景组下所有场景的列表。 */
-@property (nonatomic, nonnull, strong, readonly) NSArray<WhiteScene *> *scenes;
-/** 当前场景的路径（场景目录+当前场景名）。 */
-@property (nonatomic, nonnull, strong, readonly) NSString *scenePath;
-/** 当前场景在所属场景组中的索引号。 */
-@property (nonatomic, assign, readonly) NSInteger index;
+/** A list of all scenes under the current scene group. */
+@property(nonatomic, nonnull, strong, readonly) NSArray<WhiteScene *> *scenes;
+/** The path of the current scene (scene directory + current scene name). */
+@property(nonatomic, nonnull, strong, readonly) NSString *scenePath;
+/** The index number of the current scene in the scene group to which it belongs */
+@property(nonatomic, assign, readonly) NSInteger index;
 
 @end
 
