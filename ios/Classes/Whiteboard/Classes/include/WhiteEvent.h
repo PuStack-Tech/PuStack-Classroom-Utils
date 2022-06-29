@@ -1,1 +1,0 @@
-../Object/WhiteEvent.h

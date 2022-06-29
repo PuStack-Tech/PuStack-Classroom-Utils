@@ -11,15 +11,15 @@
 #define Whiteboard_h
 
 // for legacy，Can't look back……
-#import "SDK/WhiteSDK.h"
-#import "Room/WhiteSDK+Room.h"
-#import "Room/WhiteRoom.h"
-#import "Replayer/WhiteSDK+Replayer.h"
-#import "Replayer/WhitePlayer.h"
-#import "Convertor/V4/WhiteConverter.h"
-#import "NativeReplayer/WhiteCombinePlayer.h"
-#import "Convertor/V5/WhiteConverterV5.h"
-#import "Projector/WhiteProjectorPolling.h"
-#import "Convertor/WhiteAdvanceConvertProgressPolling.h"
+#import "WhiteSDK.h"
+#import "WhiteSDK+Room.h"
+#import "WhiteRoom.h"
+#import "WhiteSDK+Replayer.h"
+#import "WhitePlayer.h"
+#import "WhiteConverter.h"
+#import "WhiteCombinePlayer.h"
+#import "WhiteConverterV5.h"
+#import "WhiteProjectorPolling.h"
+#import "WhiteAdvanceConvertProgressPolling.h"
 
 #endif /* Whiteboard_h */

@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  final String _platformVersion = 'Unknown';
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,8 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: Colors.blue,
         body: Container(
-          margin: EdgeInsets.all(25),
-          child: AspectRatio(
+          margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 50),
+          child: const AspectRatio(
             aspectRatio: 16 / 9,
             child: LiveSessionWhiteboard(
               whiteboardAppId: "VHBvQEEXEeuIHrEufR7KaQ/cMKLzXlzkZaSoQ",

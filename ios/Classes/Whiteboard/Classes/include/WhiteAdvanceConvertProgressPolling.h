@@ -1,1 +1,0 @@
-../Converter/WhiteAdvanceConvertProgressPolling.h

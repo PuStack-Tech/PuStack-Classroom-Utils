@@ -1,1 +1,0 @@
-../Displayer/WhiteGlobalState.h

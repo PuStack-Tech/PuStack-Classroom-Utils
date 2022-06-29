@@ -6,11 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../Displayer/WhiteBoardView.h"
-#import "../Displayer/WhiteCommonCallbacks.h"
+#import "WhiteBoardView.h"
+#import "WhiteCommonCallbacks.h"
 #import "WhiteSdkConfiguration.h"
-#import "../Displayer/WhiteAudioMixerBridge.h"
-#import "../Object/WhiteFontFace.h"
+#import "WhiteAudioMixerBridge.h"
+#import "WhiteFontFace.h"
 #import "WhiteRegisterAppParams.h"
 NS_ASSUME_NONNULL_BEGIN
 

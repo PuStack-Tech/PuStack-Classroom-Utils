@@ -4,7 +4,7 @@
 //
 //  Created by yleaf on 2019/2/25.
 
-#import "../Model/WhiteObject.h"
+#import "WhiteObject.h"
 #import "WhiteScene.h"
 
 NS_ASSUME_NONNULL_BEGIN

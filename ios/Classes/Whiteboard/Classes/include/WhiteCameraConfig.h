@@ -1,1 +1,0 @@
-../Object/WhiteCameraConfig.h

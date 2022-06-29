@@ -16,8 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class WhiteRoom, WhitePlayer;
 
 /**白板界面类。*/
-@interface WhiteBoardView
-// @interface WhiteBoardView : DWKWebView
+@interface WhiteBoardView : DWKWebView
 
 /**白板房间类。详见 [WhiteRoom](WhiteRoom)。*/
 @property (nonatomic, strong, nullable) WhiteRoom *room;

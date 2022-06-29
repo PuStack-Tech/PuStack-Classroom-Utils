@@ -1,1 +1,0 @@
-../Converter/URLRequestPolling.h

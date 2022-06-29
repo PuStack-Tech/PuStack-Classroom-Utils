@@ -1,1 +1,0 @@
-../Object/WhiteMemberInformation.h

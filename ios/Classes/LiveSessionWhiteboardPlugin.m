@@ -8,13 +8,15 @@
 #import "live_session_whiteboard-Swift.h"
 #endif
 
-#import "nativeView/FLNativeView.h"
+#import "FLNativeView.h"
 
 @implementation LiveSessionWhiteboardPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   [SwiftLiveSessionWhiteboardPlugin registerWithRegistrar:registrar];
+  
   FLNativeViewFactory* factory =
       [[FLNativeViewFactory alloc] initWithMessenger:registrar.messenger];
+
   [registrar registerViewFactory:factory withId:@"whiteboard"];
 
 }

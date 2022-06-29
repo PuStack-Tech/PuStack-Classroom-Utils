@@ -1,1 +1,0 @@
-../Converter/Projector/WhiteProjectorPolling.h

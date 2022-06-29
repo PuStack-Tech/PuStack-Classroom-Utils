@@ -6,11 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../Object/WhiteCameraConfig.h"
-#import "../Object/WhiteRectangleConfig.h"
-#import "../Object/WhiteCameraBound.h"
-#import "../Object/WhitePanEvent.h"
-#import "../Object/WhiteFontFace.h"
+#import "WhiteCameraConfig.h"
+#import "WhiteRectangleConfig.h"
+#import "WhiteCameraBound.h"
+#import "WhitePanEvent.h"
+#import "WhiteFontFace.h"
 
 typedef NS_ENUM(NSInteger, WhiteScenePathType) {
     /** 路径对应的内容为空。 */

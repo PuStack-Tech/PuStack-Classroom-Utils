@@ -1,7 +1,5 @@
 #import "FLNativeView.h"
 
-#import "../Agora/Whiteboard/Classes/Whiteboard.h"
-
 @implementation FLNativeViewFactory {
   NSObject<FlutterBinaryMessenger>* _messenger;
 }

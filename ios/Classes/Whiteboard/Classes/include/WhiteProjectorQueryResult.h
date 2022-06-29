@@ -1,1 +1,0 @@
-../Converter/Projector/WhiteProjectorQueryResult.h
